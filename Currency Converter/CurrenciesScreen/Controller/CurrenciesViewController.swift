@@ -1,5 +1,5 @@
 //
-//  CurrencyRatesViewController.swift
+//  CurrenciesViewController.swift
 //  Currency Converter
 //
 //  Created by hesham ghalaab on 1/13/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CurrencyRatesViewController: UIViewController {
+class CurrenciesViewController: UIViewController {
 
     // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -40,7 +40,7 @@ class CurrencyRatesViewController: UIViewController {
     
     // MARK: Actions
     private func getCurrencies(){
-        let manager = RequestManager<CurrencyRatesResponse>()
+        let manager = RequestManager<CurrenciesResponse>()
         manager.request(FixerEndPoint.latest()) { [weak self] (result) in
             guard let self = self else {return}
             switch result{
@@ -58,7 +58,7 @@ class CurrencyRatesViewController: UIViewController {
 }
 
 // MARK: UITableViewDelegate, UITableViewDataSource
-extension CurrencyRatesViewController: UITableViewDelegate, UITableViewDataSource{
+extension CurrenciesViewController: UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

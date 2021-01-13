@@ -1,5 +1,5 @@
 //
-//  Rate.swift
+//  Currency.swift
 //  Currency Converter
 //
 //  Created by hesham ghalaab on 1/13/21.
