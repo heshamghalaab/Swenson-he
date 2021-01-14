@@ -34,10 +34,10 @@ class BaseCurrencyView: UIView {
     
     private func baseCurrencyConfiguration(){
         contentView.isUserInteractionEnabled = true
-        let tabGesture = UITapGestureRecognizer(
+        let tapGesture = UITapGestureRecognizer(
             target: self,
             action: #selector(onTapEditBaseCurrency(_:)))
-        contentView.addGestureRecognizer(tabGesture)
+        contentView.addGestureRecognizer(tapGesture)
     }
     
     @objc private func onTapEditBaseCurrency(_ sender: UITapGestureRecognizer){

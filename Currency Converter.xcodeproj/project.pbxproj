@@ -98,11 +98,7 @@
 				9C4FAB0025AF701500753948 /* RequestManager */,
 				9C4FAAE925AF627200753948 /* Utilities */,
 				9CED5FDE25AF7176000B2796 /* CurrenciesScreen */,
-				9C4FAAAA25AF5FEA00753948 /* AppDelegate.swift */,
-				9C4FAAAC25AF5FEA00753948 /* SceneDelegate.swift */,
-				9C4FAAB325AF5FED00753948 /* Assets.xcassets */,
-				9C4FAAB525AF5FED00753948 /* LaunchScreen.storyboard */,
-				9C4FAAB825AF5FED00753948 /* Info.plist */,
+				9CEB7AB725B07A4000934102 /* Support */,
 			);
 			path = "Currency Converter";
 			sourceTree = "<group>";
@@ -110,7 +106,6 @@
 		9C4FAAE925AF627200753948 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				9C4FAAEA25AF62AC00753948 /* Fixer.swift */,
 				9CEB7A9525B0313F00934102 /* UIView+Extension.swift */,
 				9CEB7A9825B03BD800934102 /* UIViewController+Extension.swift */,
 			);
@@ -129,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				9C4FAAFC25AF6DF600753948 /* FixerEndPoint.swift */,
+				9C4FAAEA25AF62AC00753948 /* Fixer.swift */,
 			);
 			path = FixerEndPoint;
 			sourceTree = "<group>";
@@ -167,6 +163,18 @@
 				9CEB7AB425B0508100934102 /* CurrencyDetailsView.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		9CEB7AB725B07A4000934102 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				9C4FAAAA25AF5FEA00753948 /* AppDelegate.swift */,
+				9C4FAAAC25AF5FEA00753948 /* SceneDelegate.swift */,
+				9C4FAAB325AF5FED00753948 /* Assets.xcassets */,
+				9C4FAAB525AF5FED00753948 /* LaunchScreen.storyboard */,
+				9C4FAAB825AF5FED00753948 /* Info.plist */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		9CED5FDE25AF7176000B2796 /* CurrenciesScreen */ = {
@@ -452,7 +460,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8V78H7WRYL;
-				INFOPLIST_FILE = "Currency Converter/Info.plist";
+				INFOPLIST_FILE = "Currency Converter/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,7 +479,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8V78H7WRYL;
-				INFOPLIST_FILE = "Currency Converter/Info.plist";
+				INFOPLIST_FILE = "Currency Converter/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

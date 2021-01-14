@@ -36,10 +36,10 @@ class CurrenciesComparisonVC: UIViewController {
     
     private func configuration(){
         view.isUserInteractionEnabled = true
-        let tabGesture = UITapGestureRecognizer(
+        let tapGesture = UITapGestureRecognizer(
             target: self,
             action: #selector(onTapDismiss(_:)))
-        view.addGestureRecognizer(tabGesture)
+        view.addGestureRecognizer(tapGesture)
     }
     
     @objc private func onTapDismiss(_ sender: UITapGestureRecognizer){
