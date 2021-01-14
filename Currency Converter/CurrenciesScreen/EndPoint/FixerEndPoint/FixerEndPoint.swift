@@ -21,12 +21,21 @@ struct FixerEndPoint: Endpoint{
         return components.url
     }
     
-    static func latest() -> FixerEndPoint {
+    /**
+     Get the latest currencies.
+
+     use Fixer.isSubscriptionUpgraded = true if you need to add the base query item in the api as The current subscription plan does not support this API endpoint with base query item.
+     
+     - Parameter base: the default base is USD.
+     */
+    static func latest(base: String) -> FixerEndPoint {
+        var items = [URLQueryItem(name: "access_key", value: Fixer.ACCESS_KEY)]
+        if Fixer.isSubscriptionUpgraded {
+            items.append(URLQueryItem(name: "base", value: base))
+        }
+        
         return FixerEndPoint(
             path: "/api/latest",
-            queryItems: [
-                URLQueryItem(name: "access_key", value: Fixer.ACCESS_KEY)
-            ]
-        )
+            queryItems: items )
     }
 }

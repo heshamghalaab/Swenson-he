@@ -9,8 +9,22 @@ import Foundation
 
 struct CurrenciesResponse: Decodable {
     let success: Bool
-    let timestamp: TimeInterval
-    let base: String
-    let date: String
-    let rates: [String: Double]
+    let error: CurrenciesResponseError?
+    let rates: [String: Double]?
+}
+
+struct CurrenciesResponseError: Decodable {
+    let code: Int?
+    let info: String?
+    var message: String?{
+        if let code = code{
+            if let info = info{
+                return info
+            }else {
+                return Fixer.errorCodes[code] ?? ""
+            }
+        }else{
+            return "UnExpected Error."
+        }
+    }
 }

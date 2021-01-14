@@ -19,46 +19,32 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XFo-jX-mpM">
                                 <rect key="frame" x="0.0" y="44" width="414" height="88"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n4C-oW-AeS">
+                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="107" placeholderIntrinsicHeight="48" translatesAutoresizingMaskIntoConstraints="NO" id="n4C-oW-AeS" customClass="BaseCurrencyView" customModule="Currency_Converter" customModuleProvider="target">
                                         <rect key="frame" x="153.5" y="20" width="107" height="48"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ndw-bG-tfF">
-                                                <rect key="frame" x="8" y="8" width="91" height="32"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="usd" translatesAutoresizingMaskIntoConstraints="NO" id="kyy-T0-LoZ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="48" height="32"/>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yk2-XE-U1t">
-                                                        <rect key="frame" x="56" y="0.0" width="35" height="32"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Ndw-bG-tfF" secondAttribute="trailing" constant="8" id="1Dx-8P-yX3"/>
                                             <constraint firstAttribute="height" constant="48" id="J3M-M8-Y9h"/>
-                                            <constraint firstAttribute="bottom" secondItem="Ndw-bG-tfF" secondAttribute="bottom" constant="8" id="VGP-bo-BdT"/>
-                                            <constraint firstItem="Ndw-bG-tfF" firstAttribute="leading" secondItem="n4C-oW-AeS" secondAttribute="leading" constant="8" id="n2r-oU-Mu9"/>
-                                            <constraint firstItem="Ndw-bG-tfF" firstAttribute="top" secondItem="n4C-oW-AeS" secondAttribute="top" constant="8" id="y3u-Pd-KdG"/>
                                         </constraints>
                                     </view>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="g44-1B-jok">
+                                        <rect key="frame" x="8" y="25.5" width="37" height="37"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
+                                    <constraint firstItem="g44-1B-jok" firstAttribute="centerY" secondItem="XFo-jX-mpM" secondAttribute="centerY" id="8t3-Ap-VpK"/>
                                     <constraint firstItem="n4C-oW-AeS" firstAttribute="centerX" secondItem="XFo-jX-mpM" secondAttribute="centerX" id="MDE-Hl-74p"/>
                                     <constraint firstItem="n4C-oW-AeS" firstAttribute="top" secondItem="XFo-jX-mpM" secondAttribute="top" constant="20" id="hjO-qT-l64"/>
+                                    <constraint firstItem="g44-1B-jok" firstAttribute="leading" secondItem="XFo-jX-mpM" secondAttribute="leading" constant="8" id="pvo-cp-OHC"/>
                                     <constraint firstItem="n4C-oW-AeS" firstAttribute="centerY" secondItem="XFo-jX-mpM" secondAttribute="centerY" id="uWf-dR-A4d"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LBS-DG-4NN">
                                 <rect key="frame" x="0.0" y="132" width="414" height="730"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RateCell" textLabel="iB6-ir-Pv4" detailTextLabel="OrG-Nh-guI" style="IBUITableViewCellStyleValue1" id="f7d-fg-59z">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CurrencyCell" textLabel="iB6-ir-Pv4" detailTextLabel="OrG-Nh-guI" style="IBUITableViewCellStyleValue1" id="f7d-fg-59z">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f7d-fg-59z" id="QTm-2G-HIH">
@@ -80,13 +66,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5NN-cO-y3p"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5NN-cO-y3p" firstAttribute="bottom" secondItem="LBS-DG-4NN" secondAttribute="bottom" id="2sH-TJ-mJn"/>
                             <constraint firstItem="LBS-DG-4NN" firstAttribute="top" secondItem="XFo-jX-mpM" secondAttribute="bottom" id="5aL-mp-LBb"/>
@@ -98,6 +86,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="g44-1B-jok" id="ISt-cv-Zc7"/>
+                        <outlet property="baseCurrencyView" destination="n4C-oW-AeS" id="7yI-hP-9DN"/>
                         <outlet property="tableView" destination="LBS-DG-4NN" id="hLb-hV-gau"/>
                     </connections>
                 </viewController>
@@ -107,7 +97,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="usd" width="48" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

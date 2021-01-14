@@ -17,27 +17,32 @@ class RequestManager<R: Decodable> {
         }
 
         let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
-
-            if let error = error{
-                handler(.failure(.network(error.localizedDescription)))
-                return
-            }
-            
-            guard let data = data else {
-                handler(.failure(.emptyData))
-                return
-            }
-            
-            do{
-                let response = try JSONDecoder().decode(R.self, from: data)
-                handler(.success(response))
-                
-            }catch{
-                handler(.failure(.decoding))
+            DispatchQueue.main.async {
+                self.handleResponse(with: data, error: error, handler: handler)
             }
         }
 
         task.resume()
+    }
+    
+    private func handleResponse(with data: Data?, error: Error?, handler: @escaping Handler<R>){
+        if let error = error{
+            handler(.failure(.network(error.localizedDescription)))
+            return
+        }
+        
+        guard let data = data else {
+            handler(.failure(.emptyData))
+            return
+        }
+        
+        do{
+            let response = try JSONDecoder().decode(R.self, from: data)
+            handler(.success(response))
+            
+        }catch{
+            handler(.failure(.decoding))
+        }
     }
 }
 
