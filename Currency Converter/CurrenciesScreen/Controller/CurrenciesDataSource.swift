@@ -9,7 +9,6 @@ import UIKit
 
 class CurrenciesDataSource: NSObject, UITableViewDataSource{
     
-    let CELL_IDENTIFIER = "CurrencyCell"
     var currencies = [Currency]()
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -21,14 +20,9 @@ class CurrenciesDataSource: NSObject, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CELL_IDENTIFIER, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyCell.identifier, for: indexPath) as! CurrencyCell
         let currency = currencies[indexPath.row]
-        cell.textLabel?.text = currency.name
-        cell.detailTextLabel?.text = currency.rate.description
-        
-        let image = UIImage(named: currency.flag) ?? UIImage(systemName: "flag")
-        cell.imageView?.image = image
-        
+        cell.configure(with: currency)
         return cell
     }
 }

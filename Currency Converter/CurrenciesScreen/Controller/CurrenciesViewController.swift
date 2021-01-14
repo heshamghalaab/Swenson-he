@@ -40,6 +40,8 @@ class CurrenciesViewController: UIViewController {
             self.didSelectCurrency(at: indexPath)
         }
         
+        let nib = UINib(nibName: CurrencyCell.identifier, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: CurrencyCell.identifier)
         tableView.dataSource = currenciesDataSource
         tableView.delegate = currenciesDelegate
     }

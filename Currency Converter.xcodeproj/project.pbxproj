@@ -26,6 +26,8 @@
 		9CEB7A9225B030B800934102 /* BaseCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB7A9125B030B800934102 /* BaseCurrencyView.swift */; };
 		9CEB7A9625B0313F00934102 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB7A9525B0313F00934102 /* UIView+Extension.swift */; };
 		9CEB7A9925B03BD800934102 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB7A9825B03BD800934102 /* UIViewController+Extension.swift */; };
+		9CEB7A9D25B0489800934102 /* CurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB7A9B25B0489800934102 /* CurrencyCell.swift */; };
+		9CEB7A9E25B0489800934102 /* CurrencyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CEB7A9C25B0489800934102 /* CurrencyCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		9CEB7A9125B030B800934102 /* BaseCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCurrencyView.swift; sourceTree = "<group>"; };
 		9CEB7A9525B0313F00934102 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		9CEB7A9825B03BD800934102 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		9CEB7A9B25B0489800934102 /* CurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCell.swift; sourceTree = "<group>"; };
+		9CEB7A9C25B0489800934102 /* CurrencyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,8 @@
 				9C6D8B0425AF830D00D1ABD6 /* CurrenciesSB.storyboard */,
 				9CEB7A9125B030B800934102 /* BaseCurrencyView.swift */,
 				9CEB7A8E25B030A700934102 /* BaseCurrencyView.xib */,
+				9CEB7A9B25B0489800934102 /* CurrencyCell.swift */,
+				9CEB7A9C25B0489800934102 /* CurrencyCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -239,6 +245,7 @@
 				9C4FAAB425AF5FED00753948 /* Assets.xcassets in Resources */,
 				9C6D8B0525AF830D00D1ABD6 /* CurrenciesSB.storyboard in Resources */,
 				9C4FAAE725AF607C00753948 /* README.md in Resources */,
+				9CEB7A9E25B0489800934102 /* CurrencyCell.xib in Resources */,
 				9CEB7A8F25B030A700934102 /* BaseCurrencyView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CEB7A9D25B0489800934102 /* CurrencyCell.swift in Sources */,
 				9C4FAAEB25AF62AC00753948 /* Fixer.swift in Sources */,
 				9CEB7A9625B0313F00934102 /* UIView+Extension.swift in Sources */,
 				9C6D8B0925AF836900D1ABD6 /* CurrenciesResponse.swift in Sources */,
