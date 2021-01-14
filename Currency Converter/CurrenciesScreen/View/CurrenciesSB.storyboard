@@ -62,11 +62,20 @@
                         <outlet property="activityIndicator" destination="g44-1B-jok" id="ISt-cv-Zc7"/>
                         <outlet property="baseCurrencyView" destination="n4C-oW-AeS" id="7yI-hP-9DN"/>
                         <outlet property="tableView" destination="LBS-DG-4NN" id="hLb-hV-gau"/>
+                        <segue destination="8Eo-NP-RkR" kind="presentation" identifier="currencyComparisonSegue" id="cOS-dh-bel"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ed8-Qb-rwF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="86" y="82"/>
+        </scene>
+        <!--CurrenciesComparisonSB-->
+        <scene sceneID="6s6-1B-Epr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CurrenciesComparisonSB" id="8Eo-NP-RkR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xbi-7Y-AoP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="702" y="82"/>
         </scene>
     </scenes>
     <resources>

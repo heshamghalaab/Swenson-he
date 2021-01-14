@@ -10,17 +10,21 @@ import UIKit
 class CurrenciesViewController: UIViewController {
 
     // MARK: Outlets
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var baseCurrencyView: BaseCurrencyView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Properties
+    
     var currenciesDataSource: CurrenciesDataSource!
     var currenciesDelegate: CurrenciesDelegate!
     var baseCurrency = Currency(name: "USD", rate: 0)
     let DEFAULT_ERROR_Message = "Error while getting currencies"
+    let currencyComparisonSegueId = "currencyComparisonSegue"
     
-    // MARK: Override Functions
+    // MARK: - View controller lifecycle methods
+
     // viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +35,17 @@ class CurrenciesViewController: UIViewController {
         getLatestCurrencies()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == currencyComparisonSegueId,
+           let destination = segue.destination as? CurrenciesComparisonVC,
+           let selectedCurrency = sender as? Currency{
+            destination.baseCurrency = self.baseCurrency
+            destination.selectedCurrency = selectedCurrency
+        }
+    }
+    
+    // MARK: - Configuration methods
+
     /// Configure Data source and delegate for currencies table view and its closures.
     private func currenciesConfiguration(){
         currenciesDataSource = CurrenciesDataSource()
@@ -92,6 +107,8 @@ class CurrenciesViewController: UIViewController {
         }
     }
     
+    // MARK: - Currency API handling methods.
+    
     private func getLatestCurrencies(){
         let manager = RequestManager<CurrenciesResponse>()
         self.activityIndicator.startAnimating()
@@ -134,6 +151,8 @@ class CurrenciesViewController: UIViewController {
         }
     }
     
+    // MARK: - Other methods
+    
     private func setBaseCurrency(with currency: Currency){
         self.baseCurrency = currency
         self.baseCurrencyView.setBaseCurrency(with: currency)
@@ -141,6 +160,6 @@ class CurrenciesViewController: UIViewController {
     
     private func didSelectCurrency(at indexPath: IndexPath){
         let currency = currenciesDataSource.currencies[indexPath.row]
-        print("didSelectCurrency: \(currency)")
+        performSegue(withIdentifier: currencyComparisonSegueId, sender: currency)
     }
 }

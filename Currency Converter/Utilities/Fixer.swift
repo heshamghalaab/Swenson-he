@@ -12,7 +12,6 @@ class Fixer {
     static let SCHEME = "http"
     static let HOST = "data.fixer.io"
     
-    
     static let errorCodes: [Int: String] = [
         404: "The requested resource does not exist.",
         101: "No API Key was specified or an invalid API Key was specified.",

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mFI-hy-Tdg">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Currencies ComparisonVC-->
+        <scene sceneID="HBb-Gb-wlh">
+            <objects>
+                <viewController storyboardIdentifier="CurrenciesComparisonVC" id="mFI-hy-Tdg" customClass="CurrenciesComparisonVC" customModule="Currency_Converter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o69-Sa-9M5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EgB-By-VUi">
+                                <rect key="frame" x="0.0" y="44" width="414" height="158"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="78.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ewo-0b-1QB" customClass="CurrencyDetailsView" customModule="Currency_Converter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="78.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sFo-cc-kua">
+                                        <rect key="frame" x="0.0" y="78.5" width="414" height="1"/>
+                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="Zxu-dB-9UN"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="78.5" translatesAutoresizingMaskIntoConstraints="NO" id="zfV-1j-vlB" customClass="CurrencyDetailsView" customModule="Currency_Converter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="79.5" width="414" height="78.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="i8E-JX-hgr"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <constraints>
+                            <constraint firstItem="EgB-By-VUi" firstAttribute="leading" secondItem="i8E-JX-hgr" secondAttribute="leading" id="O7b-Xa-X5U"/>
+                            <constraint firstItem="i8E-JX-hgr" firstAttribute="trailing" secondItem="EgB-By-VUi" secondAttribute="trailing" id="beV-og-p0C"/>
+                            <constraint firstItem="EgB-By-VUi" firstAttribute="top" secondItem="i8E-JX-hgr" secondAttribute="top" id="gdo-vN-XUK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="baseCurrencyView" destination="Ewo-0b-1QB" id="4iE-c9-ZmF"/>
+                        <outlet property="selectedCurrencyView" destination="zfV-1j-vlB" id="3FN-Cn-KYO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U3U-Q7-peU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2.8985507246376816" y="78.348214285714278"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

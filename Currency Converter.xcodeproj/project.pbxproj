@@ -28,6 +28,10 @@
 		9CEB7A9925B03BD800934102 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB7A9825B03BD800934102 /* UIViewController+Extension.swift */; };
 		9CEB7A9D25B0489800934102 /* CurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB7A9B25B0489800934102 /* CurrencyCell.swift */; };
 		9CEB7A9E25B0489800934102 /* CurrencyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CEB7A9C25B0489800934102 /* CurrencyCell.xib */; };
+		9CEB7AA725B04DA300934102 /* CurrenciesComparisonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB7AA625B04DA300934102 /* CurrenciesComparisonVC.swift */; };
+		9CEB7AAF25B04DC600934102 /* CurrenciesComparisonSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CEB7AAE25B04DC600934102 /* CurrenciesComparisonSB.storyboard */; };
+		9CEB7AB225B0506800934102 /* CurrencyDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB7AB125B0506800934102 /* CurrencyDetailsView.swift */; };
+		9CEB7AB525B0508100934102 /* CurrencyDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CEB7AB425B0508100934102 /* CurrencyDetailsView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +58,10 @@
 		9CEB7A9825B03BD800934102 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		9CEB7A9B25B0489800934102 /* CurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCell.swift; sourceTree = "<group>"; };
 		9CEB7A9C25B0489800934102 /* CurrencyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyCell.xib; sourceTree = "<group>"; };
+		9CEB7AA625B04DA300934102 /* CurrenciesComparisonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesComparisonVC.swift; sourceTree = "<group>"; };
+		9CEB7AAE25B04DC600934102 /* CurrenciesComparisonSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CurrenciesComparisonSB.storyboard; sourceTree = "<group>"; };
+		9CEB7AB125B0506800934102 /* CurrencyDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDetailsView.swift; sourceTree = "<group>"; };
+		9CEB7AB425B0508100934102 /* CurrencyDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyDetailsView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +142,33 @@
 			path = RequestManager;
 			sourceTree = "<group>";
 		};
+		9CEB7AA025B04D2700934102 /* CurrenciesComparisonScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9CEB7AA225B04D5000934102 /* View */,
+				9CEB7AA125B04D4900934102 /* Controller */,
+			);
+			path = CurrenciesComparisonScreen;
+			sourceTree = "<group>";
+		};
+		9CEB7AA125B04D4900934102 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9CEB7AA625B04DA300934102 /* CurrenciesComparisonVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9CEB7AA225B04D5000934102 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9CEB7AAE25B04DC600934102 /* CurrenciesComparisonSB.storyboard */,
+				9CEB7AB125B0506800934102 /* CurrencyDetailsView.swift */,
+				9CEB7AB425B0508100934102 /* CurrencyDetailsView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9CED5FDE25AF7176000B2796 /* CurrenciesScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +176,7 @@
 				9CED5FE125AF71AD000B2796 /* Model */,
 				9CED5FE025AF71A9000B2796 /* View */,
 				9CED5FDF25AF71A3000B2796 /* Controller */,
+				9CEB7AA025B04D2700934102 /* CurrenciesComparisonScreen */,
 			);
 			path = CurrenciesScreen;
 			sourceTree = "<group>";
@@ -242,8 +278,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C4FAAB725AF5FED00753948 /* LaunchScreen.storyboard in Resources */,
+				9CEB7AAF25B04DC600934102 /* CurrenciesComparisonSB.storyboard in Resources */,
 				9C4FAAB425AF5FED00753948 /* Assets.xcassets in Resources */,
 				9C6D8B0525AF830D00D1ABD6 /* CurrenciesSB.storyboard in Resources */,
+				9CEB7AB525B0508100934102 /* CurrencyDetailsView.xib in Resources */,
 				9C4FAAE725AF607C00753948 /* README.md in Resources */,
 				9CEB7A9E25B0489800934102 /* CurrencyCell.xib in Resources */,
 				9CEB7A8F25B030A700934102 /* BaseCurrencyView.xib in Resources */,
@@ -266,9 +304,11 @@
 				9C6D8B0125AF82E900D1ABD6 /* CurrenciesViewController.swift in Sources */,
 				9C6D8B0C25AF837400D1ABD6 /* Currency.swift in Sources */,
 				9C4FAB0225AF701E00753948 /* RequestManager.swift in Sources */,
+				9CEB7AB225B0506800934102 /* CurrencyDetailsView.swift in Sources */,
 				9CEB7A9225B030B800934102 /* BaseCurrencyView.swift in Sources */,
 				9C4FAAAB25AF5FEA00753948 /* AppDelegate.swift in Sources */,
 				9CEB7A8925B0281100934102 /* CurrenciesDataSource.swift in Sources */,
+				9CEB7AA725B04DA300934102 /* CurrenciesComparisonVC.swift in Sources */,
 				9C4FAAAD25AF5FEA00753948 /* SceneDelegate.swift in Sources */,
 				9CEB7A8C25B0281C00934102 /* CurrenciesDelegate.swift in Sources */,
 				9C4FAAF025AF65F000753948 /* Endpoint.swift in Sources */,
