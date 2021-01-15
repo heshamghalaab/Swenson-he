@@ -46,3 +46,8 @@ class CurrenciesComparisonVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 }
+
+extension CurrenciesComparisonVC: StoryboardMakeable{
+    static var storyboardName: String = "CurrenciesComparisonSB"
+    typealias StoryboardMakeableType = CurrenciesComparisonVC
+}

@@ -24,6 +24,7 @@
 		9CA6CCA625B171D300CF2844 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6CCA525B171D300CF2844 /* Feed.swift */; };
 		9CA6CCAA25B1723200CF2844 /* FixerFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6CCA925B1723200CF2844 /* FixerFeed.swift */; };
 		9CA6CCAD25B1744800CF2844 /* DataResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6CCAC25B1744800CF2844 /* DataResponseDecoder.swift */; };
+		9CA6CCB525B1814500CF2844 /* StoryboardMakeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6CCB425B1814500CF2844 /* StoryboardMakeable.swift */; };
 		9CEB7A8925B0281100934102 /* CurrenciesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB7A8825B0281100934102 /* CurrenciesDataSource.swift */; };
 		9CEB7A8C25B0281C00934102 /* CurrenciesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB7A8B25B0281C00934102 /* CurrenciesDelegate.swift */; };
 		9CEB7A8F25B030A700934102 /* BaseCurrencyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CEB7A8E25B030A700934102 /* BaseCurrencyView.xib */; };
@@ -58,6 +59,7 @@
 		9CA6CCA525B171D300CF2844 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		9CA6CCA925B1723200CF2844 /* FixerFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixerFeed.swift; sourceTree = "<group>"; };
 		9CA6CCAC25B1744800CF2844 /* DataResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResponseDecoder.swift; sourceTree = "<group>"; };
+		9CA6CCB425B1814500CF2844 /* StoryboardMakeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardMakeable.swift; sourceTree = "<group>"; };
 		9CEB7A8825B0281100934102 /* CurrenciesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesDataSource.swift; sourceTree = "<group>"; };
 		9CEB7A8B25B0281C00934102 /* CurrenciesDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesDelegate.swift; sourceTree = "<group>"; };
 		9CEB7A8E25B030A700934102 /* BaseCurrencyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseCurrencyView.xib; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				9CEB7A9825B03BD800934102 /* UIViewController+Extension.swift */,
 				9CA6CC9E25B16D8400CF2844 /* OSLog+Loggers.swift */,
 				9CA6CC9B25B16D5500CF2844 /* String+Url.swift */,
+				9CA6CCB425B1814500CF2844 /* StoryboardMakeable.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				9C6D8B0C25AF837400D1ABD6 /* Currency.swift in Sources */,
 				9C4FAB0225AF701E00753948 /* RequestManager.swift in Sources */,
 				9CA6CCAD25B1744800CF2844 /* DataResponseDecoder.swift in Sources */,
+				9CA6CCB525B1814500CF2844 /* StoryboardMakeable.swift in Sources */,
 				9CEB7AB225B0506800934102 /* CurrencyDetailsView.swift in Sources */,
 				9CEB7A9225B030B800934102 /* BaseCurrencyView.swift in Sources */,
 				9C4FAAAB25AF5FEA00753948 /* AppDelegate.swift in Sources */,

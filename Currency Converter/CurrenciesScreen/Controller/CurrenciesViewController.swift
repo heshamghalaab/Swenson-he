@@ -194,3 +194,8 @@ class CurrenciesViewController: UIViewController {
         performSegue(withIdentifier: currencyComparisonSegueId, sender: currency)
     }
 }
+
+extension CurrenciesViewController: StoryboardMakeable{
+    static var storyboardName: String = "CurrenciesSB"
+    typealias StoryboardMakeableType = CurrenciesViewController
+}
