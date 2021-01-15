@@ -22,6 +22,13 @@ class CurrenciesViewController: UIViewController {
     var baseCurrency = Currency(name: "USD", rate: 0)
     let DEFAULT_ERROR_Message = "Error while getting currencies"
     let currencyComparisonSegueId = "currencyComparisonSegue"
+    private var url: URL? {
+        var components = URLComponents()
+        components.scheme = Fixer.SCHEME
+        components.host = Fixer.HOST
+        components.path = "/api/latest"
+        return components.url
+    }
     
     // MARK: - View controller lifecycle methods
 
@@ -110,20 +117,44 @@ class CurrenciesViewController: UIViewController {
     // MARK: - Currency API handling methods.
     
     private func getLatestCurrencies(){
-        let manager = RequestManager<CurrenciesResponse>()
+        
+        guard let feed = prepareFixerFeed() else {return}
+        
+        let manager = RequestManager()
         self.activityIndicator.startAnimating()
-        manager.request(FixerEndPoint.latest(base: baseCurrency.name)) { [weak self] (result) in
+        
+        manager.request(from: feed) { [weak self] in
             guard let self = self else {return}
             self.activityIndicator.stopAnimating()
-            switch result{
+            switch $0{
             case .failure(let error):
                 self.alert(
                     title: self.DEFAULT_ERROR_Message,
-                    message: error.errorDescription ?? "", handler: {})
+                    message: error.errorDescription ?? "" , handler: {})
             case .success(let response):
                 self.handleCurrenciesResponse(with: response)
             }
         }
+    }
+    
+    /**
+     Prepare Fixer Feed to get the latest currencies.
+
+     use Fixer.isSubscriptionUpgraded = true if you need to add the base query item in the api as The current subscription plan does not support this API endpoint with base query item.
+     
+     -  base: the default base is USD.
+     */
+    private func prepareFixerFeed() -> FixerFeed?{
+        guard let absoluteURL = url?.absoluteURL.absoluteString else { return nil }
+        
+        var parameters: [String: String] = [:]
+        parameters["access_key"] = Fixer.ACCESS_KEY
+
+        if Fixer.isSubscriptionUpgraded {
+            parameters["base"] = baseCurrency.name
+        }
+
+        return FixerFeed(absolutePath: absoluteURL, parameters: parameters)
     }
     
     private func handleCurrenciesResponse(with response: CurrenciesResponse){

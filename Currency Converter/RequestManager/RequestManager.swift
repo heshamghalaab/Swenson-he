@@ -6,58 +6,74 @@
 //
 
 import Foundation
+import os.log
 
-class RequestManager<R: Decodable> {
+enum FetchError: Error {
+    case noContentReturned
+    case httpError(statusCode: Int)
+    case nonFatal
+    case fatal
     
-    typealias Handler<R> = (Result<R, RequestError>) -> ()
-    func request(_ endpoint: Endpoint, then handler: @escaping Handler<R>) {
-        
-        guard let url = endpoint.url else {
-            return handler(.failure(.invalidURL))
-        }
-
-        let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
-            DispatchQueue.main.async {
-                self.handleResponse(with: data, error: error, handler: handler)
-            }
-        }
-
-        task.resume()
-    }
-    
-    private func handleResponse(with data: Data?, error: Error?, handler: @escaping Handler<R>){
-        if let error = error{
-            handler(.failure(.network(error.localizedDescription)))
-            return
-        }
-        
-        guard let data = data else {
-            handler(.failure(.emptyData))
-            return
-        }
-        
-        do{
-            let response = try JSONDecoder().decode(R.self, from: data)
-            handler(.success(response))
-            
-        }catch{
-            handler(.failure(.decoding))
+    var errorDescription: String? {
+        switch self {
+        case .nonFatal:
+            return "invalid url , please make sure to use a valid url."
+        case .fatal:
+            return "UnExpected Error!"
+        case .noContentReturned:
+            return  "Cannot handle the data, please try again later."
+        case .httpError(let statusCode):
+            return "Error with code: \(statusCode)"
         }
     }
 }
 
-enum RequestError: Error, LocalizedError {
-    case invalidURL
-    case emptyData
-    case decoding
-    case network(_ error: String)
+protocol CanRequestFeeds {
+    func request<F: Feed>(from feed: F, completionHandler: @escaping (Result<F.JSONResponseStructure, FetchError>) -> Void)
+}
+
+struct RequestManager: CanRequestFeeds {
     
-    var errorDescription: String? {
-        switch self {
-        case .invalidURL: return "invalid url , please make sure to use a valid url."
-        case .emptyData:  return "Cannot handle the data, please try again later."
-        case .decoding:   return "UnExpected decoding Error!"
-        case .network(let text): return text
+    private let dataRequester: DataRequesting
+    private let responseDecoder: DataResponseDecoding
+
+    init(dataRequester: DataRequesting = DataRequester(), responseDecoder: DataResponseDecoding = DataResponseDecoder()) {
+        self.dataRequester = dataRequester
+        self.responseDecoder = responseDecoder
+    }
+    
+    func request<F: Feed>(from feed: F, completionHandler: @escaping (Result<F.JSONResponseStructure, FetchError>) -> Void) {
+        dataRequester.requestData(from: feed) { result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    do {
+
+                        let model: F.JSONResponseStructure = try self.responseDecoder.decodeModel(from: data)
+                        completionHandler(.success(model))
+                    } catch {
+                        completionHandler(.failure(.noContentReturned))
+                    }
+                }
+
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.logDecodeError(error, from: feed)
+                    completionHandler(.failure(error))
+                }
+
+            }
+        }
+    }
+
+    private func logDecodeError<F: Feed>(_ error: Error, from feed: F) {
+        switch error {
+        case DataResponseDecodeError.decodeToJsonFailed:
+            os_log("Error trying to unwrap feed: %@", log: .requestsLogger, type: .error, "\(F.self)")
+            os_log("URL was: %@", log: .requestsLogger, type: .error, feed.absolutePath)
+        default:
+            os_log("Error trying to decode %@: %@", log: .requestsLogger, type: .error, "\(F.self)", error.localizedDescription)
+            os_log("URL was: %@", log: .requestsLogger, type: .error, feed.absolutePath)
         }
     }
 }
