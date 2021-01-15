@@ -24,3 +24,6 @@ The currency converter must include a currency selector at the top to use as the
 
 ### Unit Testing
 - The project uses XCTest for unit test.
+
+### Durations
+- task IV and V durations: around 5 hours.
